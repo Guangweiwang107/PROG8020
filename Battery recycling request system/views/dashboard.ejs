@@ -1,0 +1,67 @@
+<%- include('includes/header.ejs') %>
+    <navigation>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="border-radius: 5px;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/dashboard">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/logout">Logout
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-sm-2" type="text" placeholder="Just for decoration Sir"
+                            spellcheck="false" data-ms-editor="true">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </navigation>
+    <main>
+        <legend
+            style="text-align: center; font-weight: bold;font-size: 35px;color: #222;font-family: Georgia, 'Times New Roman', Times, serif;">
+            New Request</legend>
+        <table class="table table-hover" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email/Phone</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% var className=["table-active","default","table-primary","table-secondary","table-success"
+                    ,"table-danger","table-warning","table-info","table-light","table-dark"]; for (let index=0; index <
+                    recyclingRequests.length; index++) { let recyclingRequest=recyclingRequests[index] %>
+                    <tr class=<%=className[Math.floor(Math.random()*9)] %>>
+                        <td>
+                            <%= recyclingRequest._id %>
+                        </td>
+                        <td>
+                            <%= recyclingRequest.inputName %>
+                        </td>
+                        <td>
+                            <%= recyclingRequest.inputEmailOrPhone %>
+                        </td>
+                        <td><a style="font-size: 14px;padding:3px" class="btn btn-primary"
+                                href="/view/<%= recyclingRequest._id %>">View</a></td>
+                        <td><a style="font-size: 14px;padding:3px" class="btn btn-primary"
+                                href="/edit/<%= recyclingRequest._id %>">Edit</a></td>
+                        <td><a style="font-size: 14px;padding:3px" class="btn btn-primary"
+                                href="/delete/<%= recyclingRequest._id %>">Delete</a></td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </main>
+    <%- include('includes/footer.ejs') %>

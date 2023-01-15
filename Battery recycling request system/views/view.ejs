@@ -1,0 +1,47 @@
+<%- include('includes/header.ejs') %>
+    <navigation>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="border-radius: 5px;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/dashboard">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/logout">Logout
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-sm-2" type="text" placeholder="Just for decoration Sir"
+                            spellcheck="false" data-ms-editor="true">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </navigation>
+    <main>
+        <legend
+            style="text-align: center; font-weight: bold;font-size: 35px;color: #222;font-family: Georgia, 'Times New Roman', Times, serif;">
+            View</legend>
+
+        <img style="margin:20px auto; width: 800px;" src="/uploads/<%= imageName %>" alt="<%= imageName %>">
+        <br>
+        <label for="" style="font-weight: bold;">Name:</label>
+        <p>
+            <%= inputName %>
+        </p>
+        <label for="" style="font-weight: bold;">Email/Phone:</label>
+        <p>
+            <%= inputEmailOrPhone %>
+        </p>
+        <label for="" style="font-weight: bold;">Issue:</label>
+        <p>
+            <%- inputMessage %>
+        </p>
+    </main>
+    <%- include('includes/footer.ejs') %>

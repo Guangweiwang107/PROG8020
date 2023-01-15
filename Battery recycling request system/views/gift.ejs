@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Clone Gifts web</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cheatsheet/">
+    <script type="text/javascript" src="js/form.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <header>
+        <h1 style="color: brown;">&nbsp;Clone Gifts</h1>
+    </header>
+    <main>
+        <div id="div01">
+            <form action="/process" method="post" onsubmit="return formSubmit()">
+
+                <table class="table table-hover">
+
+                    <tbody class="tbodyFirst">
+
+                        <tr class="table-light">
+                            <td><img style="height: 150px;width: 150px;border-radius: 30px;"
+                                    src="images\apple_158989157.jpg" alt=""><label
+                                    for="appleAmount">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <span class="badge bg-primary" style="font-size: 16px;">APPLE</span>
+                                <span class="badge bg-success" style="font-size: 16px;">500 Left</span>
+                                <span class="badge bg-danger" style="font-size: 16px;">$10 Per</span>
+                            </td>
+                            <td style="padding-top: 75px;"><span class="badge bg-info"
+                                    style="font-size: 13px;">Amount:</span><input type="text" id="appleAmount"
+                                    name="appleAmount"></td>
+                        </tr>
+                        <tr class="table-info">
+                            <td><img style="height: 150px;width: 150px;border-radius: 30px;"
+                                    src="images\istock_000017061174small-6ca3bb7c8b6c768b92153932e822623a95065935.jpg"
+                                    alt=""><label
+                                    for="cardExpiryY">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <span class="badge bg-primary" style="font-size: 16px;">BANANA</span>
+                                <span class="badge bg-success" style="font-size: 16px;">1000 Left</span>
+                                <span class="badge bg-danger" style="font-size: 16px;">$5 Per</span>
+                            </td>
+                            <td style="padding-top: 75px;"><span class="badge bg-warning"
+                                    style="font-size: 13px;">Amount:</span><input type="text" id="bananaAmount"
+                                    name="bananaAmount"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h1 style="color: brown;">CUSTOMER INFO</h1>
+                            </td>
+                        </tr>
+                        <tr class="table-light">
+                            <td><label for="userName">NAME*</label></td>
+                            <td><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input
+                                    type="text" id="customerName" name="customerName">
+                        </tr>
+                        <tr class="table-primary">
+                            <td><label for="userPhone">ADDRESS*</label></td>
+                            <td><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input
+                                    type="text" id="customerAddress" name="customerAddress"></td>
+                        </tr>
+                        <tr class="table-active">
+                            <td><label for="cardNumber">CITY*</label></td>
+                            <td><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input
+                                    type="text" id="customerCity" name="customerCity"></td>
+                        </tr>
+                        <tr class="table-success">
+                            <td><label for="cardExpiryM">PROVINCE*</label></td>
+                            <td>
+                                <div class="form-group" style="padding: 0px;">
+                                    <select class="form-select" style="color: rgb(250, 7, 112);" id="customerProvince"
+                                        name="customerProvince">
+                                        <option value="">Province List</option>
+                                        <option value="Alberta">Alberta</option>
+                                        <option value="British Columbia">British Columbia</option>
+                                        <option value="Manitoba">Manitoba</option>
+                                        <option value="New Brunswick">New Brunswick</option>
+                                        <option value="Newfoundland">Newfoundland and Labrador</option>
+                                        <option value="NorthwestTerritories">Northwest Territories</option>
+                                        <option value="Nova Scotia">Nova Scotia</option>
+                                        <option value="Nunavut">Nunavut</option>
+                                        <option value="Ontario">Ontario</option>
+                                        <option value="PrinceEdwardIsland">Prince Edward Island</option>
+                                        <option value="Quebec">Quebec</option>
+                                        <option value="Saskatchewan">Saskatchewan</option>
+                                        <option value="Yukon">Yukon</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td><label for="cardExpiryY">PHONE</label></td>
+                            <td><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input
+                                    type="text" placeholder="123-123-1234" id="customerPhone" name="customerPhone"></td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td><label for="cardExpiryY">EMAIL</label></td>
+                            <td><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input
+                                    type="text" id="customerEmail" name="customerEmail"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-lg btn-primary" style="background-color: #fd7e14;"
+                        type="submit">CALCULATE</button>
+                    <button class="btn btn-lg btn-primary" style="background-color:#fd7e14;" type="reset">Reset</button>
+                </div>
+                <p id="errors"></p>
+            </form>
+            </section>
+            <section class="w50">
+                <div class="formData" style="color: red;">
+                    <p id="formResult">
+                        <% if(typeof(errors) !='undefined' ){ for(error of errors){ %>
+                            <%= error.msg %><br>
+                                <% } } %>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <div class="container" style="margin: 450px auto 20px;text-align: center;">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div id="footer">
+                    <div class="footerNav">
+                        <a rel="nofollow" href="http://www.atguigu.com">About us</a> | <a rel="nofollow"
+                            href="http://www.atguigu.com">The terms of service</a> | <a rel="nofollow"
+                            href="http://www.atguigu.com">Disclaimer</a> | <a rel="nofollow"
+                            href="http://www.atguigu.com">Site map</a> | <a rel="nofollow"
+                            href="http://www.atguigu.com">Contact us</a>
+                    </div>
+                    <div class="copyRight">© Copyright Conestoga College, 2021, Name: Guangwei Wang
+                        Email:gwang8318@conestogac.on.ca
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

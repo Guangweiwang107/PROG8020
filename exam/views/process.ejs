@@ -1,0 +1,103 @@
+<%- include('includes/header.ejs') %>
+    <main>
+        <h1>Receipt</h1>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="table-active">
+                    <th scope="row">Name</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= customerName %>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Address</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= customerAddress %>
+                    </td>
+                </tr>
+                <tr class="table-primary">
+                    <th scope="row">City</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= customerCity %>
+                    </td>
+                </tr>
+                <tr class="table-secondary">
+                    <th scope="row">Province</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= customerProvince %>
+                    </td>
+                </tr>
+                <tr class="table-success">
+                    <th scope="row">Email</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= customerEmail %>
+                    </td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">Phone</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= customerPhone %>
+                    </td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">AppleAmount</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= appleAmount %>
+                    </td>
+                </tr>
+                <tr class="table-info">
+                    <th scope="row">BananaAmount</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= bananaAmount %>
+                    </td>
+                </tr>
+                <tr class="table-light">
+                    <th scope="row">Total price without tax</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= totalPricePreTax.toFixed(2) %>
+                    </td>
+                </tr>
+                <tr class="table-dark">
+                    <th scope="row">GST</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= gst.toFixed(2) %>
+                    </td>
+                </tr>
+                <tr class="table-dark">
+                    <th scope="row">Total price</th>
+                    <td>
+                    </td>
+                    <td>
+                        <%= totalPrice.toFixed(2) %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-grid gap-2">
+            <button class="btn btn-lg btn-primary" type="button" onclick="location.href='http://localhost:8080/'">Buy
+                Again</button>
+            <button class="btn btn-lg btn-primary" type="button"
+                onclick="location.href='http://localhost:8080/list'">View Order List</button>
+        </div>
+    </main>
+    <%- include('includes/footer.ejs') %>

@@ -1,0 +1,77 @@
+<%- include('includes/header.ejs') %>
+  <navigation>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="border-radius: 5px;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Add New</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/login">Login
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Just for decoration Sir" spellcheck="false"
+              data-ms-editor="true">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </navigation>
+
+  <main>
+
+    <form action="/process" method="POST" enctype="multipart/form-data" style="border-radius: 5px;">
+      <fieldset>
+        <legend
+          style="text-align: center; font-weight: bold;font-size: 35px;color: #222;font-family: Georgia, 'Times New Roman', Times, serif;">
+          New Request</legend>
+        <div class="form-group">
+          <label for="inputName" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+          <label for="inputEmailOrPhone" class="form-label mt-4">Email/Phone:</label>
+          <input type="text" class="form-control" id="inputEmailOrPhone" name="inputEmailOrPhone"
+            placeholder="Enter email/phone">
+          <small id="emailOrPhoneHelp" class="form-text text-muted">We'll never share your phone or email with anyone
+            else.</small>
+        </div>
+        <div class="form-group">
+          <label for="formFile" class="form-label mt-4">Upload photo:</label>
+          <input class="form-control" type="file" id="formFile" name="formFile">
+        </div>
+      </fieldset>
+      <br>
+      <textarea name="message" id="message"></textarea>
+      <br>
+      <div class="d-grid gap-2" style="width: 50%;">
+        <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+
+
+    <p id="formResult" style="color: rgb(216, 23, 23);">
+      <% if(typeof(er) !='undefined' ){ for(error of er){ %>
+        <%= error.msg %><br>
+          <% } } %>
+    </p>
+
+
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/js/tinymce/tinymce.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      tinymce.init({
+        selector: '#message'
+      });
+    });
+  </script>
+  <%- include('includes/footer.ejs') %>

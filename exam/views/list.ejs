@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <table class="table table-hover" style="text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">appleAmount</th>
+                <th scope="col">bananaAmount</th>
+                <th scope="col">totalPricePreTax</th>
+                <th scope="col">gst</th>
+                <th scope="col">totalPrice</th>
+                <th scope="col">customerName</th>
+                <th scope="col">customerAddress</th>
+                <th scope="col">customerCity</th>
+                <th scope="col">customerProvince</th>
+                <th scope="col">customerEmail</th>
+                <th scope="col">customerPhone</th>
+                <th scope="col"> </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% var className=["table-active","default","table-primary","table-secondary","table-success"
+                ,"table-danger","table-warning","table-info","table-light","table-dark"]; for (let index=0; index <
+                fruitOrders.length; index++) { let fruitOrder=fruitOrders[index] %>
+                <tr class=<%=className[Math.floor(Math.random()*9)] %>>
+                    <td>
+                        <%= fruitOrder.appleAmount %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.bananaAmount %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.totalPricePreTax.toFixed(2) %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.gst.toFixed(2) %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.totalPrice.toFixed(2) %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.customerName %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.customerAddress %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.customerCity %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.customerProvince %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.customerEmail %>
+                    </td>
+                    <td>
+                        <%= fruitOrder.customerPhone %>
+                    </td>
+
+                    <td><a style="font-size: 14px;padding:3px" class="btn btn-primary"
+                            href="/view/<%= fruitOrder._id %>">Detail</a></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
